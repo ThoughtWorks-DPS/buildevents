@@ -92,6 +92,16 @@ func providerInfo(provider string, ev *libhoney.Event) {
 			"REPO_OWNER":  "pr_user",
 			"REPO_NAME":   "repo",
 		}
+
+	case "buildkite", "buildkiteci", "build-kite":
+		envVars = map[string]string{
+			"BUILDKITE_BRANCH":            "branch",
+			"BUILDKITE_BUILD_NUMBER":      "build_num",
+			"BUILDKITE_BUILD_URL":         "build_url",
+			"BUILDKITE_PULL_REQUEST":      "pr_number",
+			"BUILDKITE_PULL_REQUEST_REPO": "pr_repo",
+			"BUILDKITE_REPO":              "repo",
+		}
 	}
 	for envVar, fieldName := range envVars {
 		if val, ok := os.LookupEnv(envVar); ok {
