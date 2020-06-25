@@ -1,4 +1,4 @@
-# buildevents [![CircleCI](https://circleci.com/gh/honeycombio/buildevents.svg?style=shield)](https://circleci.com/gh/honeycombio/buildevents)
+# buildevents [![CircleCI](https://circleci.com/gh/ThoughtWorks-DPS/buildevents.svg?style=shield)](https://circleci.com/gh/ThoughtWorks-DPS/buildevents)
 
 buildevents is a small binary used to help instrument builds in a build system such as Travis-CI, CircleCI, Jenkins, and so on. It is installed during the setup phase and then invoked as part of each step in order to visualize the build as a trace in Honeycomb
 
@@ -51,7 +51,7 @@ There are several other optional enviornment variables that will adjust the beha
 
 * `BUILDEVENT_DATASET` sets the Honeycomb dataset to use. The default is `buildevents`
 * `BUILDEVENT_APIHOST` sets the API target for sending Honeycomb traces.  Default is `https://api.honeycomb.io/`
-* `BUILDEVENT_CIPROVIDER` if set, a field in all spans named `ci_provider` will contain this value. If unset, `buildevents` will inspect the environment to try and detect Travis-CI, CircleCI, GitLab-CI, Jenkins-X, Buildkite and Google-Cloud-Build (by looking for the environment variables `TRAVIS`, `CIRCLECI`, `GITLAB_CI`, `JENKINS-X`, and `GOOGLE-CLOUD-BUILD` respectively). If either Travis-CI, CircleCI, GitLab-CI, Jenkins-X, or Google-Cloud-Build are detected, `buildevents` will add a number of additional fields from the environment, such as the branch name, the repository, the build number, and so on. If detection fails and you are on Travis-CI, CircleCI, GitLab-CI, Jenkins-X, or Google-Cloud-Build setting this to `Travis-CI`, `CircleCI`, `GitLab-CI`, `Jenkins-X`, or `Google-Cloud-Build` precisely will also trigger the automatic field additions.
+* `BUILDEVENT_CIPROVIDER` if set, a field in all spans named `ci_provider` will contain this value. If unset, `buildevents` will inspect the environment to try and detect Travis-CI, CircleCI, GitLab-CI, Jenkins-X, Buildkite and Google-Cloud-Build (by looking for the environment variables `TRAVIS`, `CircleCI`, `GITLAB_CI`, `JENKINS-X`, and `GOOGLE-CLOUD-BUILD` respectively). If either Travis-CI, CircleCI, GitLab-CI, Jenkins-X, or Google-Cloud-Build are detected, `buildevents` will add a number of additional fields from the environment, such as the branch name, the repository, the build number, and so on. If detection fails and you are on Travis-CI, CircleCI, GitLab-CI, Jenkins-X, or Google-Cloud-Build setting this to `Travis-CI`, `CircleCI`, `GitLab-CI`, `Jenkins-X`, or `Google-Cloud-Build` precisely will also trigger the automatic field additions.
 * `BUILDEVENT_FILE` if set, is used as the path of a text file holding arbitrary key=val pairs (multi-line-capable, logfmt style) that will be added to the Honeycomb event.
 
 ## Trace Identifier
